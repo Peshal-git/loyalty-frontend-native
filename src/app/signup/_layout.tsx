@@ -9,8 +9,8 @@ import {
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import * as React from "react";
-import { NAV_THEME } from "~/lib/constants";
-import { useColorScheme } from "~/lib/useColorScheme";
+import { NAV_THEME } from "@/src/lib/constants";
+import { useColorScheme } from "@/src/lib/useColorScheme";
 
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
@@ -23,7 +23,7 @@ const DARK_THEME: Theme = {
 
 export { ErrorBoundary } from "expo-router";
 
-export default function RootLayout() {
+export default function SignupLayout() {
   const { isDarkColorScheme } = useColorScheme();
 
   return (
@@ -31,9 +31,6 @@ export default function RootLayout() {
       <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="signup" options={{ headerShown: false }} />
-        <Stack.Screen name="forgot-password" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );

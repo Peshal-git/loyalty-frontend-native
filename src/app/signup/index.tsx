@@ -1,11 +1,11 @@
 import { Link } from "expo-router";
-import { Eye } from "@/lib/icons/Eye";
-import { EyeClosed } from "@/lib/icons/EyeOff";
+import { Eye } from "@/src/lib/icons/Eye";
+import { EyeClosed } from "@/src/lib/icons/EyeOff";
 import { useState } from "react";
 import { Image, Pressable, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const Index = () => {
+const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -22,17 +22,31 @@ const Index = () => {
         />
       </View>
       <View className="py-10 px-4 bg-white w-full">
-        <Text className="text-2xl text-left font-bold">Sign in</Text>
+        <Text className="text-2xl text-left font-bold">Sign up</Text>
         <View>
           <View className="mt-2 flex flex-row">
-            <Text className="text-left text-md">Don't have an account? </Text>
-            <Link href="/signup" className="underline underline-offset-4">
-              Sign up
+            <Text className="text-left text-md">Already a member? </Text>
+            <Link href="/" replace className="underline underline-offset-4">
+              Sign in
             </Link>
           </View>
         </View>
 
         <View className="flex gap-4 mt-10">
+          <View>
+            <Text className="font-semibold text-lg">Firstname*</Text>
+            <TextInput
+              className="h-14 rounded-lg border mt-2 border-[#cfc6c6] px-4"
+              placeholder="example@example.com"
+            />
+          </View>
+          <View>
+            <Text className="font-semibold text-lg">Lastname*</Text>
+            <TextInput
+              className="h-14 rounded-lg border mt-2 border-[#cfc6c6] px-4"
+              placeholder="example@example.com"
+            />
+          </View>
           <View>
             <Text className="font-semibold text-lg">Email</Text>
             <TextInput
@@ -42,9 +56,9 @@ const Index = () => {
           </View>
           <View>
             <View className="flex flex-row justify-center">
-              <Text className="font-semibold text-lg">Password</Text>
+              <Text className="font-semibold text-lg">Password*</Text>
               <Link
-                href={"/forgot-password"}
+                href={"/(tabs)/two"}
                 className="ml-auto text-sm underline-offset-4 hover:underline"
               >
                 Forgot your password?
@@ -67,41 +81,10 @@ const Index = () => {
           <View>
             <Pressable className="bg-gray-800 h-14 flex justify-center rounded-lg">
               <Text className="text-center font-semibold text-lg text-white">
-                Sign in
+                Sign up
               </Text>
             </Pressable>
           </View>
-          <View className="flex-row items-center justify-center my-6">
-            <View className="flex-1 h-px bg-[#cfc6c6]" />
-
-            <Text className="mx-4 text-sm text-muted-foreground bg-background px-2">
-              Or continue with
-            </Text>
-
-            <View className="flex-1 h-px bg-[#cfc6c6]" />
-          </View>
-          <View className="flex gap-4">
-            <Pressable className="border border-[#cfc6c6] h-14 flex flex-row gap-4 items-center justify-center rounded-lg">
-              <Image
-                source={require("~/src/images/google.png")}
-                className="h-6 w-6"
-              />
-              <Text className="text-center font-semibold text-lg">
-                Login with Google
-              </Text>
-            </Pressable>
-
-            <Pressable className="border border-[#cfc6c6] h-14 flex flex-row gap-4 items-center justify-center rounded-lg">
-              <Image
-                source={require("~/src/images/line.png")}
-                className="h-6 w-6"
-              />
-              <Text className="text-center font-semibold text-lg">
-                Login with Line
-              </Text>
-            </Pressable>
-          </View>
-          {/*  */}
 
           <View>
             <View className="mt-3 flex flex-row justify-center">
@@ -134,4 +117,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Signup;
