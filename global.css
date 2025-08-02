@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.3454 0.0412 272.81);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.9338 0.01 267.36);
+    --secondary-foreground: oklch(0.2795 0.0368 260.03);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.9338 0.01 267.36);
+    --accent-foreground: oklch(0 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --sidebar: oklch(1 0 0);
+    --sidebar-foreground: oklch(0.28 0.04 260.03);
+    --sidebar-primary: oklch(0.35 0.04 272.81);
+    --sidebar-primary-foreground: oklch(1 0 0);
+    --sidebar-accent: oklch(0.93 0.01 267.36);
+    --sidebar-accent-foreground: oklch(0 0 0);
+    --sidebar-border: oklch(0.93 0.01 255.51);
+    --sidebar-ring: oklch(0.87 0.03 265.57);
+    --tracking-normal: 0.05em;
+  }
+
+  .dark:root {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.63 0.05 274.72);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
+
+@theme {
+  --color-vikasa: #7f87aa;
+  --color-vikasa-dark: #101424;
+  --color-vikasa-dark-theme: #02030f;
+  --color-vikasa-dark-hover: #5e637d;
+  --color-success-lighter: #d3fcd2;
+  --color-success-light: #77ed8b;
+  --color-success-main: #22c55e;
+  --color-success-dark: #118d57;
+  --color-success-darker: #065e49;
+  --color-success-contrastText: #ffffff;
+  --color-success-lighter: #d3fcd2;
+  --color-success-light: #77ed8b;
+  --color-success-dark: #118d57;
+  --color-success-darker: #065e49;
+  --color-success-contrastText: #ffffff;
+  --color-warning-lighter: #fff5cc;
+  --color-warning-light: #ffd666;
+  --color-warning-main: #ffab00;
+  --color-warning-dark: #b76e00;
+  --color-warning-darker: #7a4100;
+  --color-warning-contrastText: #1c252e;
+  --color-error-lighter: #ffe9d5;
+  --color-error-light: #ffac82;
+  --color-error-main: #ff5630;
+  --color-error-dark: #b71d18;
+  --color-error-darker: #7a0916;
+  --color-error-contrastText: #ffffff;
+  --color-error-lighter: #ffe9d5;
+  --color-error-light: #ffac82;
+  --color-error-main: #ff5630;
+  --color-error-dark: #b71d18;
+  --color-error-darker: #7a0916;
+  --color-error-contrastText: #ffffff;
+  --color-switch-green: #00a76f;
+  --color-balance-main: #69728c;
+  --color-balance-background: #d6dbef;
+  --color-vitality-main: #69728c;
+  --color-vitality-background: #d7d6db;
+  --color-harmony-main: #b7bece;
+  --color-harmony-background: #666c82;
+  --color-serenity-main: #959dad;
+  --color-serenity-background: #232b30;
+  --color-redeem-main: #7e57c2;
+  --color-redeem-dark: #4527a0;
+  --color-inactive-main: #919eab;
+  --color-inactive-dark: #637381;
+}
