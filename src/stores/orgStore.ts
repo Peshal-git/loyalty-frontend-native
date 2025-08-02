@@ -1,45 +1,28 @@
-import { getOrg, OrgInfo } from "@/api";
-import { FastAverageColor } from "fast-average-color";
+import { OrgInfo } from "@/generated";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { client } from "../api/client";
 
 interface OrgState {
   orgInfo: OrgInfo | null;
   isLoading: boolean;
   error: string | null;
-  orgBackground: string;
-  setOrg: (forceFetch: boolean) => Promise<void>;
+  setOrg: () => Promise<void>;
 }
 
 const useOrgStore = create<OrgState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       orgInfo: null,
       isLoading: false,
       error: null,
-      orgBackground: "",
-      setOrg: async (forceFetch = false) => {
-        const { orgInfo } = get();
-        if (!forceFetch && orgInfo) return;
-
+      setOrg: async () => {
         set({ isLoading: true, error: null });
 
         for (let i = 0; i < 3; i++) {
           try {
-            const response = await getOrg();
-            const fac = new FastAverageColor();
-
-            fac
-              .getColorAsync(response.data?.data?.logo ?? "")
-              .then((color) => {
-                const isLight = color.isLight;
-                isLight
-                  ? set({ orgBackground: "bg-gray-800" })
-                  : set({ orgBackground: "bg-white" });
-              })
-              .catch(() => {
-                set({ orgBackground: "bg-gray-100" });
-              });
+            const response = await client.getOrg();
             set({
               orgInfo: response.data?.data,
               isLoading: false,
@@ -47,6 +30,10 @@ const useOrgStore = create<OrgState>()(
             });
             return;
           } catch (error) {
+            console.error(
+              `API attempt ${i + 1} failed:`,
+              JSON.stringify(error, null, 2)
+            );
             if (i === 2) {
               set({
                 error:
@@ -62,7 +49,7 @@ const useOrgStore = create<OrgState>()(
     }),
     {
       name: "org-storage",
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() => AsyncStorage),
     }
   )
 );

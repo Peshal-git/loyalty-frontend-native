@@ -1,12 +1,12 @@
-import { UserResponseData } from "@/api";
+import { ReqUser } from "@/generated";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 interface AuthState {
   accessToken: string | null;
   isAuthenticated: boolean;
-  user: UserResponseData | null;
-  setAuth: (token: string | null, user: UserResponseData | null) => void;
+  user: ReqUser | null;
+  setAuth: (token: string | null, user: ReqUser | null) => void;
   clearAuth: () => void;
   hasRole: (role: string) => boolean;
   clearNeedsExtraInfo: () => void;

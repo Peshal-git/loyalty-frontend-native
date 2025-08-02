@@ -11,6 +11,7 @@ import { StatusBar } from "expo-status-bar";
 import * as React from "react";
 import { NAV_THEME } from "@/src/lib/constants";
 import { useColorScheme } from "@/src/lib/useColorScheme";
+import { PortalHost } from "@rn-primitives/portal";
 
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
@@ -35,6 +36,7 @@ export default function RootLayout() {
         <Stack.Screen name="forgot-password" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>
+      <PortalHost />
     </ThemeProvider>
   );
 }

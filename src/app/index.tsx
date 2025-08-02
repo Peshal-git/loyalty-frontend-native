@@ -4,9 +4,12 @@ import { EyeClosed } from "@/src/lib/icons/EyeOff";
 import { useState } from "react";
 import { Image, Pressable, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import useOrgStore from "../stores/orgStore";
 
 const Index = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const { orgInfo } = useOrgStore();
 
   return (
     <SafeAreaView>
@@ -16,7 +19,7 @@ const Index = () => {
         <Image
           className="h-12"
           source={{
-            uri: "https://res.cloudinary.com/ddncdzqwt/image/upload/v1753889094/dosink-logo-light_qrr4uu.png",
+            uri: orgInfo?.logo,
           }}
           width={120}
         />
