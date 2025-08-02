@@ -27,12 +27,13 @@ axiosInstance.interceptors.request.use(
   (config) => {
     config.headers["x-org-id"] = "a0wBS000000JxM9YAK";
 
-    console.log("Outgoing Request:", {
-      url: config.url,
-      method: config.method,
-      headers: config.headers,
-      data: config.data,
-    });
+    // console.log("Outgoing Request:", {
+    //   url: config.url,
+    //   method: config.method,
+    //   headers: config.headers,
+    //   data: config.data,
+    //   baseUrl: config.baseURL,
+    // });
 
     const accessToken = useAuthStore.getState().accessToken;
     if (accessToken) {

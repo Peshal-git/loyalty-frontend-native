@@ -193,15 +193,7 @@ const Signup = () => {
               name="password"
               render={({ field: { onChange, onBlur, value } }) => (
                 <View>
-                  <View className="flex flex-row justify-center">
-                    <Text className="font-semibold text-lg">Password*</Text>
-                    <Link
-                      href="/(tabs)/two"
-                      className="ml-auto text-sm underline-offset-4 hover:underline"
-                    >
-                      Forgot your password?
-                    </Link>
-                  </View>
+                  <Text className="font-semibold text-lg">Password*</Text>
                   <View className="relative">
                     <TextInput
                       className="h-14 rounded-lg border mt-2 border-[#cfc6c6] px-4"
@@ -238,7 +230,7 @@ const Signup = () => {
               control={control}
               name="privacyPolicy"
               render={({ field: { onChange, value } }) => (
-                <View className="flex flex-row items-center gap-3">
+                <View className="mt-4 flex flex-row items-center gap-3">
                   <View>
                     <Checkbox checked={value} onCheckedChange={onChange} />
                   </View>
@@ -259,7 +251,7 @@ const Signup = () => {
               control={control}
               name="marketingConsent"
               render={({ field: { onChange, value } }) => (
-                <View className="flex flex-row items-center gap-3">
+                <View className="mb-4 flex flex-row items-center gap-3">
                   <View>
                     <Checkbox checked={value} onCheckedChange={onChange} />
                   </View>
@@ -284,7 +276,7 @@ const Signup = () => {
                 disabled={isSubmitting}
               >
                 <Text className="text-center font-semibold text-lg text-white">
-                  {isSubmitting ? "Submitting..." : "Sign up"}
+                  {isSubmitting ? "Signing up..." : "Sign up"}
                 </Text>
               </Pressable>
             </View>
