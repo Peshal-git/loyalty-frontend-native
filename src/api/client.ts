@@ -48,12 +48,6 @@ let isRefreshing = false;
 
 axiosInstance.interceptors.response.use(
   async (response) => {
-    if (!navigator.onLine) {
-      Toast.show({
-        type: "error",
-        text1: "No internet connection",
-      });
-    }
     return response;
   },
   async (error) => {

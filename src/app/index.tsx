@@ -9,23 +9,23 @@ import { LoginFormData, loginSchema } from "../schemas/login.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { useLogin } from "../hooks/use-auth-query";
-import { AppError } from "../types/AppError";
 import Toast from "react-native-toast-message";
 import { AxiosError } from "axios";
+import { AppError } from "../types/AppError";
 
 const Index = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
-  const { orgInfo } = useOrgStore();
 
   const router = useRouter();
-
   const signinUserMutation = useLogin();
+
+  const { orgInfo } = useOrgStore();
 
   const {
     control,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm({
     resolver: zodResolver(loginSchema),
   });
@@ -35,15 +35,15 @@ const Index = () => {
       setIsAuthenticating(true);
       await signinUserMutation.mutateAsync(values);
 
-      router.replace("/(tabs)/two");
+      router.replace("/a/members");
     } catch (error) {
-      const err = error as AxiosError<{ message?: string; error?: string }>;
+      const err = error as AxiosError<AppError>;
       let errorMessage = "Failed to sign in. Please try again.";
 
       if (err.response) {
         errorMessage =
           err.response.data?.message ||
-          err.response.data?.error ||
+          err.response.data?.details ||
           `Server error: ${err.response.status}`;
       } else if (err.request) {
         errorMessage = "Network error. Please check your connection.";
@@ -113,7 +113,7 @@ const Index = () => {
                 <View className="flex flex-row justify-center">
                   <Text className="font-semibold text-lg">Password*</Text>
                   <Link
-                    href="/(tabs)/two"
+                    href="/forgot-password"
                     className="ml-auto text-sm underline-offset-4 hover:underline"
                   >
                     Forgot your password?
@@ -149,7 +149,7 @@ const Index = () => {
 
           <View>
             <Pressable
-              className="bg-gray-800 h-14 flex justify-center rounded-lg disabled:opacity-50"
+              className="bg-gray-800 h-14 flex justify-center rounded-lg disabled:bg-gray-500"
               onPress={handleSubmit(onSubmit)}
               disabled={isAuthenticating}
             >

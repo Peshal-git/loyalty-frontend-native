@@ -1,7 +1,7 @@
 import { Link } from "expo-router";
 import { Eye } from "@/src/lib/icons/Eye";
 import { EyeClosed } from "@/src/lib/icons/EyeOff";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Image,
   Pressable,

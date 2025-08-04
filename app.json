@@ -14,14 +14,19 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ppeshal.loyaltynative",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.ppeshal.loyaltynative"
     },
     "web": {
       "bundler": "metro",
@@ -33,6 +38,12 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b71ebd8c-78b9-4edf-b4bf-4c8a51d95859"
+      }
+    },
+    "owner": "ppeshal"
   }
 }
